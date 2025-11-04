@@ -1,0 +1,25 @@
+global:
+  namespaces:
+    operator: moat-system
+
+operator:
+  enabled: true
+  createNamespace: true
+  image:
+    repository: ghcr.io/arxignis/moat-operator
+    tag: latest
+    pullPolicy: IfNotPresent
+  replicaCount: 1
+  leaderElect: true
+  serviceAccount:
+    create: true
+    name: ""
+  rbac:
+    create: true
+  resources:
+    requests:
+      cpu: 5m
+      memory: 32Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi

@@ -355,8 +355,6 @@ tolerations: []
 
 affinity: {}
 
-valkey:
-  enabled: true
+valkey: {}
 
-clamav:
-  enabled: true
+clamav: {}

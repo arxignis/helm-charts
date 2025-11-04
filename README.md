@@ -29,9 +29,13 @@ A Helm chart for Moat reverse proxy with security features.
 - `valkey` - Redis-compatible in-memory data store
 - `clamav` - Antivirus engine
 
+### moat-operator
+
+A Helm chart for the Moat Kubernetes operator.
+
 ### moat-stack
 
-Umbrella chart that installs both the Moat dataplane and the Moat Kubernetes operator.
+Umbrella chart that installs both the Moat dataplane and the Moat Kubernetes operator together.
 
 **Dependencies:**
 - `moat` - Moat reverse proxy chart
@@ -50,7 +54,7 @@ helm repo update
 Install both the Moat dataplane and operator together:
 
 ```bash
-helm install moat-stack arxignis/moat-stack
+helm install moat-stack arxignis/moat-stack --version 0.1.2
 ```
 
 ### Install moat only
@@ -58,7 +62,15 @@ helm install moat-stack arxignis/moat-stack
 Install just the Moat reverse proxy:
 
 ```bash
-helm install moat arxignis/moat
+helm install moat arxignis/moat --version 1.0.0
+```
+
+### Install moat-operator only
+
+Install just the Moat Kubernetes operator:
+
+```bash
+helm install moat-operator arxignis/moat-operator --version 1.0.0
 ```
 
 ## Usage
@@ -66,6 +78,7 @@ helm install moat arxignis/moat
 See the individual chart directories for detailed configuration options:
 
 - [moat chart values](charts/moat/values.yaml)
+- [moat-operator chart values](charts/moat-operator/values.yaml)
 - [moat-stack chart values](charts/moat-stack/values.yaml)
 
 ## Repository
