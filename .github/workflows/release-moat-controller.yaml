@@ -1,7 +1,11 @@
-name: Release Charts
+name: Release Moat Controller Chart
+
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'charts/moat-controller/**'
+
 jobs:
   release:
     permissions:
@@ -19,19 +23,20 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v4
 
-      - name: Add repo for remote deps (our own pages)
+      - name: Add repositories for dependencies
         run: |
           helm repo add arxignis https://arxignis.github.io/helm-charts
-          helm repo add valkey https://valkey.io/valkey-helm/
           helm repo update
 
-      - name: Build chart dependencies
+      - name: Build moat-controller chart dependencies
         run: |
-          for c in charts/*; do
-            [ -f "$c/Chart.yaml" ] && helm dependency build "$c" || true
-          done
+          helm dependency build charts/moat-controller
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0
+        with:
+          charts_dir: charts
+          packages_dir: .cr-release-packages
         env:
           CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
