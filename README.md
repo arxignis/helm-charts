@@ -32,10 +32,7 @@ A Helm chart for Moat reverse proxy with security features.
 
 ### moat-operator
 
-A Helm chart that installs the Moat operator for Kubernetes.
-
-**Dependencies:**
-- `moat` - Moat reverse proxy chart
+A Helm chart that installs the Moat Kubernetes operator for managing Moat instances.
 
 ## Installation
 
