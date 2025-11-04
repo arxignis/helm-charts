@@ -1,7 +1,6 @@
 apiVersion: v2
 name: moat-stack
 description: Umbrella chart that installs the Moat dataplane together with the Moat operator
-# Release v0.1.2
 type: application
 version: 0.1.2
 appVersion: "0.1.0"

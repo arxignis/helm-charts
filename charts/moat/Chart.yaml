@@ -1,7 +1,6 @@
 apiVersion: v2
 name: moat
 description: A Helm chart for Moat reverse proxy with security features
-# Release v1.0.0
 
 # A chart can be either an 'application' or a 'library' chart.
 #
