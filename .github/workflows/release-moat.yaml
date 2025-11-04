@@ -1,10 +1,10 @@
-name: Release Moat Stack Chart
+name: Release Moat Chart
 
 on:
   push:
     branches: [ main ]
     paths:
-      - 'charts/moat-stack/**'
+      - 'charts/moat/**'
   workflow_dispatch:
 
 jobs:
@@ -29,9 +29,9 @@ jobs:
           helm repo add valkey https://valkey.io/valkey-helm/
           helm repo update
 
-      - name: Build moat-stack chart dependencies
+      - name: Build moat chart dependencies
         run: |
-          helm dependency build charts/moat-stack
+          helm dependency build charts/moat
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0

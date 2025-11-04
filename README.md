@@ -2,7 +2,9 @@
 
 <p align="center">
   <a href="https://github.com/arxignis/helm-charts/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-Apache 2-green" alt="License - Apache 2"></a> &nbsp;
-  <a href="https://github.com/arxignis/helm-charts/actions?query=branch%3Amain"><img src="https://github.com/arxignis/helm-charts/actions/workflows/release-charts.yaml/badge.svg" alt="Release Charts"></a> &nbsp;
+  <a href="https://github.com/arxignis/helm-charts/actions?query=branch%3Amain"><img src="https://github.com/arxignis/helm-charts/actions/workflows/release-moat.yaml/badge.svg" alt="Release Moat"></a> &nbsp;
+  <a href="https://github.com/arxignis/helm-charts/actions?query=branch%3Amain"><img src="https://github.com/arxignis/helm-charts/actions/workflows/release-moat-operator.yaml/badge.svg" alt="Release Moat Operator"></a> &nbsp;
+  <a href="https://github.com/arxignis/helm-charts/actions?query=branch%3Amain"><img src="https://github.com/arxignis/helm-charts/actions/workflows/release-moat-stack.yaml/badge.svg" alt="Release Moat Stack"></a> &nbsp;
   <a href="https://github.com/arxignis/helm-charts/releases"><img src="https://img.shields.io/github/release/arxignis/helm-charts.svg?label=Release" alt="Release"></a> &nbsp;
   <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/arxignis/helm-charts/total"> &nbsp;
   <a href="https://docs.arxignis.com/"><img alt="Static Badge" src="https://img.shields.io/badge/arxignis-documentation-page?style=flat&link=https%3A%2F%2Fdocs.arxignis.com%2F"></a> &nbsp;
@@ -91,9 +93,13 @@ Charts are automatically published to:
 
 ### Releasing Charts
 
-Charts are automatically released via GitHub Actions when changes are pushed to the `main` branch.
+Charts are automatically released via separate GitHub Actions workflows when changes are pushed to the `main` branch:
 
-Changes to `charts/**` trigger the `release-charts.yaml` workflow. The workflow uses [chart-releaser-action](https://github.com/helm/chart-releaser-action) to package and publish charts to the GitHub Pages repository.
+- **Moat Chart**: Changes to `charts/moat/**` trigger the `release-moat.yaml` workflow
+- **Moat Operator Chart**: Changes to `charts/moat-operator/**` trigger the `release-moat-operator.yaml` workflow
+- **Moat Stack Chart**: Changes to `charts/moat-stack/**` trigger the `release-moat-stack.yaml` workflow
+
+Each workflow can also be triggered manually via workflow_dispatch. The workflows use [chart-releaser-action](https://github.com/helm/chart-releaser-action) to package and publish charts to the GitHub Pages repository.
 
 ### Manual Release
 
