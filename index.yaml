@@ -3,6 +3,23 @@ entries:
   moat:
   - apiVersion: v2
     appVersion: 0.0.7
+    created: "2025-11-10T16:47:15.361625628Z"
+    dependencies:
+    - name: valkey
+      repository: https://valkey.io/valkey-helm/
+      version: 0.7.7
+    - name: clamav
+      repository: oci://registry.gitlab.com/xrow-public/helm-clamav/charts
+      version: 1.6.82
+    description: A Helm chart for Moat reverse proxy with security features
+    digest: 7b6b0227038851ab709cd850d604d5b27a15d18ad3b0578c07557bf3c9873e16
+    name: moat
+    type: application
+    urls:
+    - https://github.com/arxignis/helm-charts/releases/download/moat-1.1.2/moat-1.1.2.tgz
+    version: 1.1.2
+  - apiVersion: v2
+    appVersion: 0.0.7
     created: "2025-11-10T16:43:12.639890813Z"
     dependencies:
     - name: valkey
@@ -132,6 +149,36 @@ entries:
     - https://github.com/arxignis/helm-charts/releases/download/moat-operator-1.0.4/moat-operator-1.0.4.tgz
     version: 1.0.4
   moat-stack:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-11-10T16:47:15.616101792Z"
+    dependencies:
+    - name: moat
+      repository: file://../moat
+      version: 1.1.2
+    description: Umbrella chart that installs the Moat dataplane together with the
+      Moat operator
+    digest: d5ea7b2e95aedd4876ab1392c454d083c808d922f866018b1f01501cd182a4ce
+    home: https://arxignis.com
+    icon: https://raw.githubusercontent.com/arxignis/helm-charts/main/images/logo.png
+    keywords:
+    - moat
+    - operator
+    - kubernetes
+    - security
+    - proxy
+    - firewall
+    maintainers:
+    - email: support@arxignis.com
+      name: Arxignis
+    name: moat-stack
+    sources:
+    - https://github.com/arxignis/moat
+    - https://github.com/arxignis/moat-operator
+    type: application
+    urls:
+    - https://github.com/arxignis/helm-charts/releases/download/moat-stack-0.1.7/moat-stack-0.1.7.tgz
+    version: 0.1.7
   - apiVersion: v2
     appVersion: 0.1.0
     created: "2025-11-10T16:43:12.860440196Z"
@@ -304,4 +351,4 @@ entries:
     urls:
     - https://github.com/arxignis/helm-charts/releases/download/ssl-storage-0.1.1/ssl-storage-0.1.1.tgz
     version: 0.1.1
-generated: "2025-11-10T16:43:12.860482384Z"
+generated: "2025-11-10T16:47:15.616167935Z"
