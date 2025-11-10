@@ -7,6 +7,10 @@ on:
       - 'charts/moat/**'
   workflow_dispatch:
 
+concurrency:
+  group: helm-chart-release
+  cancel-in-progress: false
+
 jobs:
   release:
     permissions:
