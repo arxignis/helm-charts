@@ -42,6 +42,10 @@ Umbrella chart that installs both the Moat dataplane and the Moat Kubernetes ope
 **Dependencies:**
 - `moat` - Moat reverse proxy chart
 
+### ssl-storage
+
+Helm chart for deploying the SSL Storage ACME/Let's Encrypt certificate management service.
+
 ## Installation
 
 ### Add the Helm repository
@@ -98,6 +102,7 @@ Charts are automatically released via separate GitHub Actions workflows when cha
 - **Moat Chart**: Changes to `charts/moat/**` trigger the `release-moat.yaml` workflow
 - **Moat Operator Chart**: Changes to `charts/moat-operator/**` trigger the `release-moat-operator.yaml` workflow
 - **Moat Stack Chart**: Changes to `charts/moat-stack/**` trigger the `release-moat-stack.yaml` workflow
+- **SSL Storage Chart**: Changes to `charts/ssl-storage/**` trigger the `release-ssl-storage.yaml` workflow
 
 Each workflow can also be triggered manually via workflow_dispatch. The workflows use [chart-releaser-action](https://github.com/helm/chart-releaser-action) to package and publish charts to the GitHub Pages repository.
 
